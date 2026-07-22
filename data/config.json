@@ -1,0 +1,45 @@
+{
+  "profile": {
+    "name": "Padmaja Patil",
+    "experience": "3+ Years",
+    "location": "Pune",
+    "preferred_work_mode": [
+      "Hybrid",
+      "Remote"
+    ]
+  },
+
+  "skills": [
+    "Automation Testing",
+    "QA Automation",
+    "Selenium",
+    "Python",
+    "REST API",
+    "Postman",
+    "Newman",
+    "Pytest",
+    "GitHub Actions",
+    "SQL",
+    "JIRA",
+    "Agile",
+    "SDET"
+  ],
+
+  "job_titles": [
+    "Automation Test Engineer",
+    "QA Automation Engineer",
+    "Software Test Engineer",
+    "SDET",
+    "QA Engineer",
+    "Automation Engineer"
+  ],
+
+  "target_location": [
+    "Pune"
+  ],
+
+  "daily_limits": {
+    "recruiters": 10,
+    "jobs": 10
+  }
+}
