@@ -1,0 +1,5 @@
+Daily Job Recommendations
+=========================
+
+Infosys | QA Automation Engineer | 100.0% | HIGH
+Capgemini | SDET | 87.5% | HIGH
