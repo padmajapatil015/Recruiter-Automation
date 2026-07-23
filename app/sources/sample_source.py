@@ -8,31 +8,22 @@ class SampleSource:
         return [
 
             Recruiter(
-
                 agency="Sample Recruitment",
-
                 recruiter_name="Rahul Sharma",
-
-                email="rahul@example.com",
-
+                designation="Technical Recruiter",
+                email="sample@example.com",
                 phone="+91xxxxxxxxxx",
-
                 linkedin="https://linkedin.com/in/sample",
-
                 website="https://example.com",
-
                 city="Pune",
-
-                specialization="Automation Testing",
-
-                current_opening="QA Automation Engineer",
-
+                hiring_for="QA Automation Engineer",
+                experience_required="2-4 Years",
+                work_mode="Hybrid",
+                current_opening="Automation Test Engineer",
+                job_link="https://example.com/job",
                 hiring_location="Pune",
-
                 source="Sample Source",
-
                 verified=True
-
             )
 
         ]
