@@ -5,19 +5,34 @@ class SampleSource:
 
     def fetch(self):
 
-        recruiters = [
+        return [
 
             Recruiter(
+
                 agency="Sample Recruitment",
-                email="sample@example.com",
+
+                recruiter_name="Rahul Sharma",
+
+                email="rahul@example.com",
+
                 phone="+91xxxxxxxxxx",
+
+                linkedin="https://linkedin.com/in/sample",
+
                 website="https://example.com",
+
                 city="Pune",
+
                 specialization="Automation Testing",
+
+                current_opening="QA Automation Engineer",
+
                 hiring_location="Pune",
+
+                source="Sample Source",
+
                 verified=True
+
             )
 
         ]
-
-        return recruiters
