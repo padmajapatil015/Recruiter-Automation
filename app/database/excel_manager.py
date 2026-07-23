@@ -11,13 +11,21 @@ class ExcelManager:
 
         self.columns = [
             "Agency",
+            "Recruiter Name",
             "Email",
             "Phone",
+            "LinkedIn",
             "Website",
             "City",
             "Specialization",
+            "Current Opening",
             "Hiring Location",
+            "Source",
             "Verified",
+            "Contacted",
+            "Applied",
+            "Follow Up",
+            "Notes",
             "Added Date"
         ]
 
@@ -48,13 +56,21 @@ class ExcelManager:
         new_data = {
 
             "Agency": recruiter.agency,
+            "Recruiter Name": recruiter.recruiter_name,
             "Email": recruiter.email,
             "Phone": recruiter.phone,
+            "LinkedIn": recruiter.linkedin,
             "Website": recruiter.website,
             "City": recruiter.city,
             "Specialization": recruiter.specialization,
+            "Current Opening": recruiter.current_opening,
             "Hiring Location": recruiter.hiring_location,
+            "Source": recruiter.source,
             "Verified": recruiter.verified,
+            "Contacted": "No",
+            "Applied": "No",
+            "Follow Up": "",
+            "Notes": "",
             "Added Date": datetime.now().strftime("%Y-%m-%d")
         }
 
