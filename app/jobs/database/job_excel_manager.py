@@ -31,13 +31,48 @@ class JobExcelManager:
 
             df = pd.DataFrame(columns=self.columns)
 
-            df.to_excel(self.file_path, index=False)
+            df.to_excel(
+                self.file_path,
+                index=False
+            )
+
+
+    def is_duplicate(self, job):
+
+        df = pd.read_excel(
+            self.file_path
+        )
+
+
+        if df.empty:
+            return False
+
+
+        duplicate = df[
+            (df["Company"] == job.company) &
+            (df["Job Title"] == job.job_title)
+        ]
+
+
+        return not duplicate.empty
 
 
 
     def add_job(self, job):
 
         self.create_file()
+
+
+        if self.is_duplicate(job):
+
+            print(
+                "Duplicate job skipped:",
+                job.company,
+                job.job_title
+            )
+
+            return
+
 
 
         new_row = {
@@ -57,7 +92,9 @@ class JobExcelManager:
         }
 
 
-        df = pd.read_excel(self.file_path)
+        df = pd.read_excel(
+            self.file_path
+        )
 
 
         df = pd.concat(
@@ -72,4 +109,11 @@ class JobExcelManager:
         df.to_excel(
             self.file_path,
             index=False
+        )
+
+
+        print(
+            "Job added:",
+            job.company,
+            job.job_title
         )

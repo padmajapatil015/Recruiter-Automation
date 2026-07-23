@@ -1,0 +1,18 @@
+[
+    {
+        "company": "Infosys",
+        "career_url": "https://www.infosys.com/careers/"
+    },
+    {
+        "company": "TCS",
+        "career_url": "https://www.tcs.com/careers"
+    },
+    {
+        "company": "Capgemini",
+        "career_url": "https://www.capgemini.com/careers/"
+    },
+    {
+        "company": "Accenture",
+        "career_url": "https://www.accenture.com/in-en/careers"
+    }
+]
