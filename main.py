@@ -1,4 +1,5 @@
 from app.sources.sample_source import SampleSource
+from app.database.excel_manager import ExcelManager
 
 
 def main():
@@ -7,17 +8,15 @@ def main():
 
     recruiters = source.fetch()
 
-    print("\nToday's Recruiters\n")
+
+    database = ExcelManager()
+
 
     for recruiter in recruiters:
 
-        print("-" * 40)
-        print(f"Agency       : {recruiter.agency}")
-        print(f"Email        : {recruiter.email}")
-        print(f"Phone        : {recruiter.phone}")
-        print(f"Website      : {recruiter.website}")
-        print(f"Location     : {recruiter.city}")
-        print(f"Specialization : {recruiter.specialization}")
+        result = database.add_recruiter(recruiter)
+
+        print(result)
 
 
 if __name__ == "__main__":
