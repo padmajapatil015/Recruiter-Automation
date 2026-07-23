@@ -1,23 +1,13 @@
-from app.sources.sample_source import SampleSource
-from app.database.excel_manager import ExcelManager
+from app.services.recruiter_service import RecruiterService
 
 
 def main():
 
-    source = SampleSource()
+    service = RecruiterService()
 
-    recruiters = source.fetch()
-
-
-    database = ExcelManager()
-
-
-    for recruiter in recruiters:
-
-        result = database.add_recruiter(recruiter)
-
-        print(result)
+    service.run()
 
 
 if __name__ == "__main__":
+
     main()
