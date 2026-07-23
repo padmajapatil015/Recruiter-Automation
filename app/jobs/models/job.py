@@ -20,3 +20,6 @@ class Job:
         self.status = "New"
         self.first_seen = ""
         self.last_seen = ""
+
+        # Priority
+        self.priority = "LOW"

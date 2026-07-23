@@ -23,7 +23,8 @@ class JobExcelManager:
             "Match Score",
             "Status",
             "First Seen",
-            "Last Seen"
+            "Last Seen",
+            "Priority"
         ]
 
 
@@ -97,6 +98,11 @@ class JobExcelManager:
                 "Last Seen"
             ] = today
 
+            df.loc[
+                existing_index,
+                "Priority"
+            ] = job.priority
+
 
             df.to_excel(
                 self.file_path,
@@ -129,7 +135,8 @@ class JobExcelManager:
             "Match Score": job.match_score,
             "Status": "New",
             "First Seen": today,
-            "Last Seen": today
+            "Last Seen": today,
+            "Priority": job.priority
 
         }
 
