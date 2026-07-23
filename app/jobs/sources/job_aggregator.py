@@ -1,14 +1,17 @@
 from app.jobs.sources.sample_job_source import SampleJobSource
 from app.jobs.sources.company_career_source import CompanyCareerSource
+from app.jobs.sources.rss_job_source import RSSJobSource
 
 
 class JobAggregator:
+
 
     def __init__(self):
 
         self.sources = [
             SampleJobSource(),
-            CompanyCareerSource()
+            CompanyCareerSource(),
+            RSSJobSource()
         ]
 
 
