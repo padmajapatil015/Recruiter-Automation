@@ -12,4 +12,11 @@ class Job:
         self.apply_link = ""
         self.source = ""
         self.date_found = ""
+
+        # Resume Matching
         self.match_score = 0
+
+        # Job Tracking
+        self.status = "New"
+        self.first_seen = ""
+        self.last_seen = ""

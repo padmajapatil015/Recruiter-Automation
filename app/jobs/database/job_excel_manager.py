@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+from datetime import datetime
 
 
 class JobExcelManager:
@@ -19,7 +20,10 @@ class JobExcelManager:
             "Apply Link",
             "Source",
             "Date Found",
-            "Match Score"
+            "Match Score",
+            "Status",
+            "First Seen",
+            "Last Seen"
         ]
 
 
@@ -29,7 +33,9 @@ class JobExcelManager:
 
         if not os.path.exists(self.file_path):
 
-            df = pd.DataFrame(columns=self.columns)
+            df = pd.DataFrame(
+                columns=self.columns
+            )
 
             df.to_excel(
                 self.file_path,
@@ -37,24 +43,27 @@ class JobExcelManager:
             )
 
 
-    def is_duplicate(self, job):
+    def find_job(self, job):
 
         df = pd.read_excel(
             self.file_path
         )
 
-
         if df.empty:
-            return False
+            return None
 
 
-        duplicate = df[
+        result = df[
             (df["Company"] == job.company) &
             (df["Job Title"] == job.job_title)
         ]
 
 
-        return not duplicate.empty
+        if not result.empty:
+            return result.index[0]
+
+
+        return None
 
 
 
@@ -62,11 +71,41 @@ class JobExcelManager:
 
         self.create_file()
 
+        today = datetime.now().strftime(
+            "%d-%b-%Y"
+        )
 
-        if self.is_duplicate(job):
+
+        df = pd.read_excel(
+            self.file_path
+        )
+
+
+        existing_index = self.find_job(job)
+
+
+        if existing_index is not None:
+
+            df.loc[
+                existing_index,
+                "Status"
+            ] = "Existing"
+
+
+            df.loc[
+                existing_index,
+                "Last Seen"
+            ] = today
+
+
+            df.to_excel(
+                self.file_path,
+                index=False
+            )
+
 
             print(
-                "Duplicate job skipped:",
+                "Existing job updated:",
                 job.company,
                 job.job_title
             )
@@ -87,14 +126,12 @@ class JobExcelManager:
             "Apply Link": job.apply_link,
             "Source": job.source,
             "Date Found": job.date_found,
-            "Match Score": job.match_score
+            "Match Score": job.match_score,
+            "Status": "New",
+            "First Seen": today,
+            "Last Seen": today
 
         }
-
-
-        df = pd.read_excel(
-            self.file_path
-        )
 
 
         df = pd.concat(
@@ -113,7 +150,7 @@ class JobExcelManager:
 
 
         print(
-            "Job added:",
+            "New job added:",
             job.company,
             job.job_title
         )
